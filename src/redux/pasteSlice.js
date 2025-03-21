@@ -3,10 +3,16 @@ import toast from 'react-hot-toast';
 
 
 const initialState = {
-  pastes:localStorage.getItem('pastes') 
-  ?  JSON.parse(localStorage.getItem('pastes')) 
-  : []
-}
+  pastes: (() => {
+    try {
+      const storedPastes = localStorage.getItem('pastes');
+      return storedPastes ? JSON.parse(storedPastes) : [];
+    } catch (error) {
+      console.error('Error parsing pastes from localStorage:', error);
+      return [];
+    }
+  })(),
+};
 
 export const pasteSlice = createSlice({
   name: 'paste',
@@ -15,7 +21,7 @@ export const pasteSlice = createSlice({
     addToPastes: (state,action) => {
       const paste = action.payload; 
       state.pastes.push(paste);
-      localStorage.setItem('pastes',state.pastes);
+      localStorage.setItem('pastes',JSON.stringify(state.pastes));
       toast.success("Paste added")
     },
     updateToPastes: (state,action) => {
@@ -49,4 +55,4 @@ export const pasteSlice = createSlice({
 // Action creators are generated for each case reducer function
 export const { addToPastes, updateToPastes, resetAllPastes, removeFromPastes} = pasteSlice.actions
 
-export default pasteSlice.reducer
+export default pasteSlice.reducer;
