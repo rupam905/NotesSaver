@@ -30,7 +30,8 @@ A modern **note-saving app** built with **React, Redux, and Tailwind CSS**. Easi
 ---
 
 ## 🖥️ Live Demo  
-🔗 [**Try it here**](#)
+🔗 [**Try it here**](notes-saver-livid.vercel.app
+)
 
 ---
 
