@@ -38,5 +38,5 @@ A modern **note-saving app** built with **React, Redux, and Tailwind CSS**. Easi
 
 ### 1️⃣ Clone the repository  
 ```bash
-git clone https://github.com/your-username/notes-app.git
-cd notes-app
+git clone https://github.com/rupam905/NotesSaver.git
+cd notessaver
